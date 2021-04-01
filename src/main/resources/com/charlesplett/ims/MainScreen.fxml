@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import com.charlesplett.ims.*?>
+
+<VBox id="VBox" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.charlesplett.ims.MainScreenController">
+    <HBox alignment="center_left" spacing="10">
+        <padding>
+            <Insets top="10" left="10" bottom="10" />
+        </padding>
+        <ImageView>
+            <Image url="com/charlesplett/ims/IMS48.png"/>
+        </ImageView>
+        <Label text="Inventory Management System">
+            <font>
+                <Font size="22"/>
+            </font>
+        </Label>
+    </HBox> 
+    <GridPane alignment="top_center" hgap="10" vgap="10">
+        <GridPane alignment="top_right" hgap="10" vgap="10" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-border-style: solid; -fx-border-color: gray; -fx-border-radius: 8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="Parts" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="230.0">
+                <font>
+                    <Font name="default bold" size="16"/>
+                </font>
+            </Label>
+            <Button fx:id="partSearchButton" prefWidth="70" text="Search" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#search"/>
+            <TextField fx:id="partSearchField" promptText="ID or Name" prefWidth="100.0" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+            <TableView fx:id="partTableView" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="4" prefWidth="480.0">
+                <placeholder>
+                    <Label text="No Parts Found"/>
+                </placeholder>
+                <columns>
+                    <TableColumn fx:id="partId" text="Part ID" prefWidth="119.0"/>
+                    <TableColumn fx:id="partName" text="Part Name" prefWidth="120.0"/>
+                    <TableColumn fx:id="partStock" text="Inventory Level" prefWidth="119.0"/>
+                    <TableColumn fx:id="partPrice" text="Price/Cost per Unit" prefWidth="120.0"/>
+                </columns>    
+            </TableView>
+            <HBox GridPane.rowIndex="2" GridPane.columnSpan="4" alignment="top_right" spacing="10">
+                <Button prefWidth="90" text="Add" onAction="#addPart"/>
+                <Button prefWidth="90" text="Modify" onAction="#modifyPart"/>
+                <Button fx:id="partDeleteButton" prefWidth="90" text="Delete" onAction="#delete"/>
+            </HBox>
+        </GridPane> 
+        <GridPane alignment="top_left" hgap="10" vgap="10" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-border-style: solid; -fx-border-color: gray; -fx-border-radius: 8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="Products" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="230.0">
+                <font>
+                    <Font name="default bold" size="16"/>
+                </font>
+            </Label>
+            <Button fx:id="productSearchButton" prefWidth="70" text="Search" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#search"/>
+            <TextField fx:id="productSearchField" promptText="ID or Name" prefWidth="100.0" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+            <TableView fx:id="productTableView" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="4"  prefWidth="480.0">
+                <placeholder>
+                    <Label text="No Products Found"/>
+                </placeholder>
+                <columns>
+                    <TableColumn fx:id="productId" text="Product ID" prefWidth="119.0"/>
+                    <TableColumn fx:id="productName" text="Product Name" prefWidth="120.0"/>
+                    <TableColumn fx:id="productStock" text="Inventory Level" prefWidth="119.0"/>
+                    <TableColumn fx:id="productPrice" text="Price/Cost per Unit" prefWidth="120.0"/>
+                </columns>    
+            </TableView>
+            <HBox GridPane.rowIndex="2" GridPane.columnSpan="4" alignment="top_right" spacing="10">
+                <Button prefWidth="90" text="Add" onAction="#addProduct"/>
+                <Button prefWidth="90" text="Modify" onAction="#modifyProduct"/>
+                <Button fx:id="productDeleteButton" prefWidth="90" text="Delete" onAction="#delete"/>
+            </HBox>
+        </GridPane>
+    </GridPane>
+    <HBox alignment="top_right" spacing="10">
+        <padding>
+            <Insets top = "10" bottom="10" right="10" />
+        </padding>
+        <Button fx:id="exitButton" prefWidth="90" text="Exit" onAction="#exit"/>
+    </HBox>
+</VBox>
